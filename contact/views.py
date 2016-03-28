@@ -4,9 +4,11 @@ from wechat_sdk import WechatBasic
 
 # Create your views here.
 def requestHandler(request):
-    if (request.method == 'POST'):
+    if (request.method == 'GET'):
         response = HttpResponse(check_valid(request), content_type="text/plain")
-    return response
+        return response
+    else:
+        return None
 
 
 def check_valid(request):
