@@ -14,11 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from contact.contact_detail import show_contact_detail
 from contact.views import requestHandler
-from contact.contact_index import fetch_all_contact
+from contact.contact_list import fetch_all_contact
 
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     url(r'^$', requestHandler),
-    url(r'^contact_all/$', fetch_all_contact()),
+    url(r'^contact_all/$', fetch_all_contact),
+    url(r'^contact_detail/$', show_contact_detail, name='contact_detail'),
 ]
