@@ -46,6 +46,11 @@ coverage.xml
 # Django stuff:
 *.log
 *.pot
+django_uwsgi_conf.ini
+django_wsgi.py
+myWeChatQY_nginx.conf
+uwsgi_params
+
 
 # Sphinx documentation
 docs/_build/
