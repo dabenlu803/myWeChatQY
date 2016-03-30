@@ -22,5 +22,5 @@ urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     url(r'^$', requestHandler),
     url(r'^contact_all/$', fetch_all_contact),
-    url(r'^contact_detail/$', show_contact_detail, name='contact_detail'),
+    url(r'^contact_detail/(.+)/$', show_contact_detail, name='contact_detail'),
 ]

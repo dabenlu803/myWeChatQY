@@ -22,15 +22,24 @@
             </a>
 
             <h1 class="title">列表</h1>
+            <div class="bar bar-header-secondary">
+                <div class="searchbar">
+                    <a class="searchbar-cancel">搜索</a>
+                    <div class="search-input">
+                        <label class="icon icon-search" for="search"></label>
+                        <input type="search" id='search' placeholder='输入关键字...'/>
+                    </div>
+                </div>
+            </div>
         </header>
         <div class="content">
             <div class="list-block contacts-block">
                 {% for item in stuffs %}
                      <li>
-                         {% url 'contact_detail' as temp_url %}
+                         {% url 'contact_detail' item.userid as temp_url %}
 {#                         {% if temp_url %}#}
                          <a href="{{temp_url}}" class="item-link item-content">
-                             <div class="item-media"><img src={{item.avatar}} width="44"></div>
+                             <div class="item-media"><img src={{item.avatar}} width="43"></div>
                              <div class="item-inner">
                                  <div class="item-title">{{item.name}}</div>
                              </div>
