@@ -4,23 +4,27 @@ from django.shortcuts import render_to_response
 from wechatpy.enterprise import WeChatClient
 
 from contact import wechat_config
+from contact.models import UserInfo
 
 
 __author__ = 'lilu'
 
 
 def fetch_all_contact(request):
-    client = WeChatClient(wechat_config.CORP_ID, wechat_config.SECRET)
-    access_token = client.fetch_access_token()
-    departments = client.department.get()
-    stuffs = []
-    for department in departments:
-        department_id = department.get('id')
-        stuffs.extend(client.user.list(department_id))
+    # client = WeChatClient(wechat_config.CORP_ID, wechat_config.SECRET)
+    # access_token = client.fetch_access_token()
+    # departments = client.department.get()
+    # stuffs = []
+    # for department in departments:
+    #     department_id = department.get('id')
+    #     stuffs.extend(client.user.list(department_id))
+    stuffs = UserInfo.objects.all()
     stuffs_in_range = dict()
     for stuff in stuffs:
         # stuff['avatar'] = stuff['avatar'] + '64'
-        first_letter = get_cn_first_letter(stuff['name'], type(stuff['name']).__name__)
+        if stuff.avatar != '':
+            stuff.avatar = stuff.avatar + '64'
+        first_letter = get_cn_first_letter(stuff.user_name, type(stuff.user_name).__name__)
         name_list = stuffs_in_range.get(first_letter)
         if name_list is None:
             name_list = []
@@ -28,8 +32,6 @@ def fetch_all_contact(request):
         else:
             name_list.append(stuff)
         stuffs_in_range.update({first_letter: name_list})
-    # for k, v in stuffs_in_range.items():
-    # logging.warn('key=%s,value=%s', k, v)
 
     return render_to_response('contact_list.html', {'stuffs': stuffs_in_range})
 

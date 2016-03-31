@@ -32,7 +32,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">姓名</div>
                                 <div class="item-input">
-                                    <input type="text" value="{{ item.name }}" placeholder="请输入姓名">
+                                    <input type="text" value="{{ item.user_name }}" placeholder="请输入姓名">
                                 </div>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">微信号</div>
                                 <div class="item-input">
-                                    <input type="text" value="{{ item.weixinid }}" placeholder="请输入微信号">
+                                    <input type="text" value="{{ item.weixin_id }}" placeholder="请输入微信号">
                                 </div>
                             </div>
                         </div>
@@ -77,10 +77,10 @@
                                 <div class="item-title label">性别</div>
                                 <div class="item-input">
                                     <select>
-                                        {% if item.gender == '1' %}
+                                        {% if item.gender == 1 %}
                                             <option selected="selected">男</option>
                                             <option>女</option>
-                                        {% elif item.gender == '2' %}
+                                        {% elif item.gender == 2 %}
                                             <option>男</option>
                                             <option selected="selected">女</option>
                                         {% else %}
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                     </li>
-                    {% for extra in item.extattr.attrs %}
+                    {% for extra in attrs %}
                         <li>
                             <div class="item-content">
                                 <div class="item-media"><i class="icon icon-card"></i></div>

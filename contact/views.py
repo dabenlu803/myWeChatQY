@@ -20,14 +20,6 @@ def requestHandler(request):
     return response
 
 
-def get_all_contact():
-    return None
-
-
-def show_all_contact():
-    return None
-
-
 # @csrf_exempt
 def process_request(request):
     signature = request.GET.get("msg_signature", None)
