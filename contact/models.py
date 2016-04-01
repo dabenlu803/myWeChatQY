@@ -25,6 +25,8 @@ class UserInfo(models.Model):
     weixin_id = models.CharField(max_length=20)
     avatar = models.URLField()
     status = models.IntegerField()
+    pinyin = models.CharField(max_length=20)
+    first_letter = models.CharField(max_length=2)
     extr_attr = models.CharField(max_length=200)
     create_time = models.DateTimeField(auto_now_add=True)
     last_modify = models.DateTimeField(auto_now=True)

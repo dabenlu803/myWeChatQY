@@ -3,15 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>My Life</title>
+    <title>通讯录</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    {#    <link type="text/css" rel="stylesheet" href="/static/css/sm.css">#}
+        <link type="text/css" rel="stylesheet" href="/static/css/sm.css">
     {#    <link type="text/css" rel="stylesheet" href="/static/css/sm-extend.css">#}
-    <link type="text/css" rel="stylesheet" href="/static/css/sm.min.css">
+{#    <link type="text/css" rel="stylesheet" href="/static/css/sm.min.css">#}
     <link type="text/css" rel="stylesheet" href="/static/css/sm-extend.min.css">
+    <style type="text/css">
+        .list-group-title {
+            background-color: #000000;
+        }
+    </style>
 
 </head>
 <body>
@@ -37,7 +42,7 @@
             </div>
         </header>
         <div class="content">
-            <div class="list-block contacts-block">
+            <div class="list-block">
                 {% for key,items in stuffs.items %}
                     <li class="list-group-title">{{ key }}</li>
                     {% for item in items %}
